@@ -100,6 +100,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellcode-inject", "shellco
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coff", "coff\coff.csproj", "{2A23E0EC-C464-4861-8F72-A36B30E03432}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "screenshot", "screenshot\screenshot.csproj", "{8D320274-3029-43CF-9D86-99FDE1D75F0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -500,6 +502,14 @@ Global
 		{2A23E0EC-C464-4861-8F72-A36B30E03432}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A23E0EC-C464-4861-8F72-A36B30E03432}.Release|x64.ActiveCfg = Release|x64
 		{2A23E0EC-C464-4861-8F72-A36B30E03432}.Release|x64.Build.0 = Release|x64
+		{8D320274-3029-43CF-9D86-99FDE1D75F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D320274-3029-43CF-9D86-99FDE1D75F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D320274-3029-43CF-9D86-99FDE1D75F0B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8D320274-3029-43CF-9D86-99FDE1D75F0B}.Debug|x64.Build.0 = Debug|Any CPU
+		{8D320274-3029-43CF-9D86-99FDE1D75F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D320274-3029-43CF-9D86-99FDE1D75F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D320274-3029-43CF-9D86-99FDE1D75F0B}.Release|x64.ActiveCfg = Release|Any CPU
+		{8D320274-3029-43CF-9D86-99FDE1D75F0B}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

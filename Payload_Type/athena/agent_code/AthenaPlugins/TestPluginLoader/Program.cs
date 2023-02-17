@@ -20,8 +20,8 @@ namespace TestPluginLoader
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             //parameters.Add("path", "/etc/hosts");
-            //parameters.Add("task_id", "1");
-            IPlugin plugin = new Coff();
+            parameters.Add("task-id", "1");
+            IPlugin plugin = new Screenshot();
 
             plugin.Execute(parameters);
             Console.WriteLine(PluginHandler.GetResponses().Result.FirstOrDefault());
