@@ -33,7 +33,7 @@ class ScreenshotCommand(CommandBase):
     async def process_response(self, response: AgentResponse):
             file_resp = await MythicRPC().execute("create_file",
                                     task_id=task.id,
-                                    file=resp.response,
+                                    file=response.response,
                                     delete_after_fetch=False,
                                     is_screenshot=True)  
         pass
