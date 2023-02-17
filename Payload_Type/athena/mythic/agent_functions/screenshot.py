@@ -36,5 +36,4 @@ class ScreenshotCommand(CommandBase):
                                     file=response.response,
                                     delete_after_fetch=False,
                                     is_screenshot=True)  
-        pass
-
+pass
