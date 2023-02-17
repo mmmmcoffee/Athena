@@ -24,7 +24,7 @@ class ScreenshotCommand(CommandBase):
     attackmapping = []
     argument_class = ScreenshotArguments
     attributes = CommandAttributes(
-        load_only=False,
+        load_only=True,
         builtin=True
     )
     async def create_tasking(self, task: MythicTask) -> MythicTask:
