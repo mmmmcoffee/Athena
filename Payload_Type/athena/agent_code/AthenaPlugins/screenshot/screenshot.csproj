@@ -13,8 +13,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Athena.Plugins\Athena.Plugins.csproj" />
   </ItemGroup>
-  <Target Name="CopyFiles" AfterTargets="Build">
-	<Copy SourceFiles="@(PluginFiles)" DestinationFolder="$(ProjectDir)..\bin\" SkipUnchangedFiles="false" />
-  </Target>
-
+	<ItemGroup>
+		<PluginFiles Include="$(TargetPath)" />
+	</ItemGroup>
+	<Target Name="CopyFiles" AfterTargets="Build">
+		<Copy SourceFiles="@(PluginFiles)" DestinationFolder="$(ProjectDir)..\bin\" SkipUnchangedFiles="false" />
+	</Target>
 </Project>
