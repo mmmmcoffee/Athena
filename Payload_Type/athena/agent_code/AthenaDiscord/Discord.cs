@@ -238,7 +238,8 @@ namespace Profiles
         {
             try
             {
-                byte[] msgBytes = System.Text.Encoding.UTF8.GetBytes(JsonSerializer.Serialize(msg));
+                string msgclean = System.Uri.UnescapeDataString(msg);
+                byte[] msgBytes = System.Text.Encoding.UTF8.GetBytes(JsonSerializer.Serialize(msgclean));
                 using (MemoryStream memStream = new MemoryStream(msgBytes)) //8mb max filesize
                 {
                     var URL = "https://discord.com/api/channels/" + ChannelID + "/messages";
