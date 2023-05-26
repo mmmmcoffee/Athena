@@ -238,7 +238,7 @@ namespace Profiles
         {
             try
             {
-                byte[] msgBytes = System.Text.Encoding.UTF8.GetBytes(msg);
+                byte[] msgBytes = System.Text.Encoding.ASCII.GetBytes(msg);
                 using (MemoryStream memStream = new MemoryStream(msgBytes)) //8mb max filesize
                 {
                     var URL = "https://discord.com/api/channels/" + ChannelID + "/messages";
