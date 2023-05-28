@@ -118,26 +118,28 @@ namespace Athena.Forwarders
                 {
                     guid = Guid.NewGuid().ToString(),
                     final = false,
-                    message_type = "chunked_message"
+                    message_type = "chunked_message",
+                    delegate_message = dm.message
                 };
 
-                IEnumerable<string> parts = dm.message.SplitByLength(4000);
+                await this.clientPipe.WriteAsync(sm);
+                //IEnumerable<string> parts = dm.message.SplitByLength(4000);
 
-                Debug.WriteLine($"[{DateTime.Now}] Sending message with size of {dm.message.Length} in {parts.Count()} chunks.");
-                foreach (string part in parts)
-                {
-                    sm.delegate_message = part;
+                //Debug.WriteLine($"[{DateTime.Now}] Sending message with size of {dm.message.Length} in {parts.Count()} chunks.");
+                //foreach (string part in parts)
+                //{
+                //    sm.delegate_message = part;
 
-                    if (part == parts.Last())
-                    {
-                        sm.final = true;
-                    }
-                    Debug.WriteLine($"[{DateTime.Now}] Sending message to pipe: {part.Length} bytes. (Final = {sm.final})");
-                    
-                    await this.clientPipe.WriteAsync(sm);
-                    
-                    messageSuccess.WaitOne();
-                }
+                //    if (part == parts.Last())
+                //    {
+                //        sm.final = true;
+                //    }
+                //    Debug.WriteLine($"[{DateTime.Now}] Sending message to pipe: {part.Length} bytes. (Final = {sm.final})");
+
+                //    await this.clientPipe.WriteAsync(sm);
+
+                //    messageSuccess.WaitOne();
+                //}
                 return true;
             }
             catch (Exception e)

@@ -249,27 +249,30 @@ namespace Athena
                 {
                     guid = Guid.NewGuid().ToString(),
                     final = false,
-                    message_type = "chunked_message"
+                    message_type = "chunked_message",
+                    delegate_message = json
                 };
 
-                IEnumerable<string> parts = json.SplitByLength(4000);
+                await this.serverPipe.WriteAsync(sm);
 
-                Debug.WriteLine($"[{DateTime.Now}] Sending message with size of {json.Length} in {parts.Count()} chunks.");
-                foreach (string part in parts)
-                {
-                    sm.delegate_message = part;
+                //IEnumerable<string> parts = json.SplitByLength(4000);
 
-                    if (part == parts.Last())
-                    {
-                        sm.final = true;
-                    }
-                    Debug.WriteLine($"[{DateTime.Now}] Sending message to pipe: {part.Length} bytes. (Final = {sm.final})");
+                //Debug.WriteLine($"[{DateTime.Now}] Sending message with size of {json.Length} in {parts.Count()} chunks.");
+                //foreach (string part in parts)
+                //{
+                //    sm.delegate_message = part;
 
-                    await this.serverPipe.WriteAsync(sm);
+                //    if (part == parts.Last())
+                //    {
+                //        sm.final = true;
+                //    }
+                //    Debug.WriteLine($"[{DateTime.Now}] Sending message to pipe: {part.Length} bytes. (Final = {sm.final})");
 
-                }
+                //    await this.serverPipe.WriteAsync(sm);
 
-                Debug.WriteLine($"[{DateTime.Now}] Done writing message to pipe.");
+                //}
+
+                //Debug.WriteLine($"[{DateTime.Now}] Done writing message to pipe.");
 
             }
             catch (Exception e)
