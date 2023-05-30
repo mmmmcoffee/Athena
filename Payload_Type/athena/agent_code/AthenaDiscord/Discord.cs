@@ -238,10 +238,10 @@ namespace Profiles
         {
             try
             {
-                byte[] msgBytes = System.Text.Encoding.ASCII.GetBytes(msg);
-                
                 var URL = "https://discord.com/api/channels/" + ChannelID + "/messages";
                 var Content = new MultipartFormDataContent();
+                byte[] msgBytes = Encoding.ASCII.GetBytes(msg);
+                
                 var File_Content = new ByteArrayContent(msgBytes);
                 File_Content.Headers.ContentType = new MediaTypeHeaderValue("multipart/form-data");
                 File_Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("filename")
@@ -252,7 +252,6 @@ namespace Profiles
                 var res = await discordClient.PostAsync(URL, Content);
 
                 return res.IsSuccessStatusCode;
-                
             }
             catch (Exception e)
             {
